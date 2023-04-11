@@ -1,0 +1,31 @@
+import string
+
+data = open("C:\\Users\\Adarsh Pryan  M\\Downloads\\pg3data.txt", 'r')
+text = data.readlines()
+data.close()
+str_data = ""
+for i in text:
+    str_data += i
+    
+print("***Initial Data is***", str_data, sep="\n")
+
+punctions = string.punctuation
+
+punc_count, replace_count, space_count = 0, 0, 0
+a = 'a'
+b = 'b'
+
+for elem in str_data:
+    if elem in punctions:
+        str_data = str_data.replace(elem, "")
+        punc_count += 1
+    if elem == " ":
+        space_count += 1
+    if elem == a:
+        str_data = str_data.replace(elem, b)
+        replace_count += 1
+        
+print("**Processed text is**")
+print(str_data)
+print("*" * 80)
+print(f"Number of punctuations is {punc_count}\nNumber of replacements is {replace_count}\nNumber of spaces is {space_count}")
